@@ -67,6 +67,12 @@ export const creators: Creator[] = [
     platforms: ["youtube"],
     youtube: "https://www.youtube.com/@tinyblock",
   },
+  {
+    name: "S1LLYBLOSSOM",
+    image: "s1llyblossom.png",
+    platforms: ["youtube"],
+    youtube: "https://www.youtube.com/@BL0SS0M_GT",
+  },
 ]
 
 export function profileUrl(filename: string) {
