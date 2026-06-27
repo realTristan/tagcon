@@ -17,9 +17,19 @@ npx shadcn@latest add card
 
 ## GitHub Pages deployment
 
+**Live URL for this repo:** [https://realtristan.github.io/tagcon/](https://realtristan.github.io/tagcon/)
+
 1. Push this repo to GitHub (the repo name becomes the URL path, e.g. `https://<user>.github.io/tagcon/`).
-2. In the repo, go to **Settings → Pages** and set **Source** to **GitHub Actions**.
+2. In the repo, go to **Settings → Pages** and set **Source** to **GitHub Actions** (not “Deploy from a branch”).
 3. Push to `main` — the workflow in `.github/workflows/deploy.yml` builds and deploys automatically.
+
+### Site shows a blank page or requests `/src/main.tsx`?
+
+GitHub Pages is serving the raw source instead of the built app. Fix:
+
+1. **Settings → Pages → Build and deployment → Source** → choose **GitHub Actions**.
+2. Re-run the workflow: **Actions → Deploy to GitHub Pages → Run workflow**.
+3. Open **`https://<user>.github.io/tagcon/`** (include the `/tagcon/` path).
 
 To preview the production build locally:
 

@@ -33,8 +33,21 @@ jobs:
       - name: Build
         run: npm run build:pages
         env:
-          GITHUB_PAGES: true
+          GITHUB_PAGES: 'true'
           REPO_NAME: ${{ github.event.repository.name }}
+
+      - name: Verify build output
+        run: |
+          if grep -q 'src/main.tsx' dist/index.html; then
+            echo "Build failed: dist/index.html still references dev source files."
+            exit 1
+          fi
+          if ! grep -q '/assets/' dist/index.html; then
+            echo "Build failed: dist/index.html has no bundled assets."
+            exit 1
+          fi
+          echo "Built index.html:"
+          cat dist/index.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
