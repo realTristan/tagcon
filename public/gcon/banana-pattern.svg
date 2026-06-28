@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240">
+  <defs>
+    <path
+      id="banana"
+      d="M417.28,412.77c-35.63,63.13-290.45,78.48-379.27-86.7C-48.21,165.69,32.87,8.13,78.82.34c46.79-7.91,60.42,122.3,137.21,216.33,72.97,89.38,217.75,140.62,201.24,196.09Z"
+      transform="scale(0.11) translate(20, 10)"
+    />
+    <pattern
+      id="banana-grid"
+      width="120"
+      height="120"
+      patternUnits="userSpaceOnUse"
+    >
+      <rect width="120" height="120" fill="none" />
+      <use href="#banana" x="8" y="6" fill="#fbc401" opacity="0.22" transform="rotate(-18 34 34)" />
+      <use href="#banana" x="62" y="18" fill="#ffc90d" opacity="0.16" transform="rotate(24 88 46)" />
+      <use href="#banana" x="24" y="68" fill="#ffb700" opacity="0.18" transform="rotate(8 50 96)" />
+      <use href="#banana" x="78" y="72" fill="#fbc401" opacity="0.14" transform="rotate(-32 102 100)" />
+    </pattern>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#banana-grid)" />
+</svg>
