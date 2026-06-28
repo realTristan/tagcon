@@ -35,11 +35,6 @@ function App() {
       <main className="pt-22">
         <section className="relative isolate overflow-hidden border-b-2 border-tagcon-banana/20 bg-tagcon-black">
           <div
-            className="pointer-events-none absolute inset-0 bg-cover bg-top bg-no-repeat opacity-55"
-            style={{ backgroundImage: `url(${gconAsset("hero-bg.png")})` }}
-            aria-hidden
-          />
-          <div
             className="pointer-events-none absolute inset-0 scale-[1.15] bg-size-[140px_140px] bg-repeat opacity-90"
             style={{ backgroundImage: `url(${patternUrl})` }}
             aria-hidden
