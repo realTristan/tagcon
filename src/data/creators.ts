@@ -50,6 +50,18 @@ export const creators: Creator[] = [
     platforms: ["youtube"],
     youtube: "https://www.youtube.com/@BL0SS0M_GT",
   },
+  {
+    name: "DrBearVR",
+    image: "drbearvr.png",
+    platforms: ["youtube"],
+    youtube: "https://www.youtube.com/channel/UC4CCOg3H164oAMsJYVSpBCw",
+  },
+  {
+    name: "BananaGT",
+    image: "bananagt.png",
+    platforms: ["youtube"],
+    youtube: "https://www.youtube.com/channel/UCvAiwaVA-cxxeDZbGLcgU8g",
+  },
 ];
 
 export function profileUrl(filename: string) {

@@ -3,6 +3,8 @@ import { EventCountdown } from "@/components/EventCountdown";
 import { DiscordIcon } from "@/components/icons/social-icons";
 import { Button } from "@/components/ui/button";
 import { creators } from "@/data/creators";
+import { useEventCelebration } from "@/hooks/useEventCelebration";
+import { useEventLive } from "@/hooks/useEventLive";
 import { gconAsset } from "@/lib/assets";
 
 const containerClass = "mx-auto w-[min(100%-3rem,72rem)]";
@@ -11,6 +13,9 @@ const eventStart = "2026-06-30T08:35:00-05:00";
 
 function App() {
   const patternUrl = gconAsset("banana-pattern.svg");
+
+  useEventCelebration();
+  const isLive = useEventLive(eventStart);
 
   return (
     <div className="min-h-svh bg-tagcon-black text-white">
@@ -66,7 +71,7 @@ function App() {
                   TAGCON
                 </h1>
                 <h2 className="mt-2 font-heading text-[clamp(1.35rem,3vw,2rem)] font-bold uppercase text-tagcon-orange">
-                  MEET CREATORS!
+                  {isLive ? "LIVE NOW!" : "MEET CREATORS!"}
                 </h2>
                 <div className="my-4 h-[3px] w-[min(100%,12rem)] bg-linear-to-r from-transparent via-tagcon-banana to-transparent lg:mx-0" />
                 <p className="max-w-md font-display text-[0.95rem] font-semibold leading-normal text-white/82 sm:text-[1.05rem]">
@@ -80,11 +85,17 @@ function App() {
         <section className="border-b-2 border-tagcon-banana/12">
           <div className={`${containerClass} py-12 sm:py-16`}>
             <div className="mx-auto max-w-3xl rounded-[1.25rem] border-[3px] border-tagcon-banana/35 bg-[#111]/92 p-8 text-center shadow-[0_6px_0_rgba(251,196,1,0.18)]">
-              <p className="font-display text-sm uppercase tracking-[0.2em] text-white">
+              <span className="inline-block rounded-full border-2 border-tagcon-orange/60 bg-tagcon-orange/15 px-4 py-1 font-heading text-xs font-bold uppercase tracking-[0.15em] text-tagcon-orange">
+                Closed
+              </span>
+              <p className="mt-4 font-display text-sm uppercase tracking-[0.2em] text-white">
                 Troop Code TAGCON
               </p>
               <p className="mt-3 font-display text-3xl leading-tight uppercase text-tagcon-banana sm:text-4xl">
-                Forest, And City
+                Forest, City &amp; V Stump
+              </p>
+              <p className="mt-4 font-heading text-sm font-semibold uppercase tracking-wide text-white/55">
+                Maps will be in code
               </p>
             </div>
           </div>
@@ -114,31 +125,42 @@ function App() {
         <section className="border-b-2 border-tagcon-banana/12">
           <div className={`${containerClass} py-14 sm:py-20`}>
             <div className="mx-auto max-w-3xl rounded-[1.25rem] border-[3px] border-tagcon-banana/35 bg-[#111]/92 p-8 shadow-[0_6px_0_rgba(251,196,1,0.18)] sm:p-10">
-              <h2 className="text-center font-display text-2xl uppercase text-tagcon-banana sm:text-3xl">
-                Want To Be A Featured Creator?
-              </h2>
-              <p className="mt-5 text-center font-display text-lg font-semibold text-white">
-                DM BlueMonkgtag On Discord
-              </p>
-              <p className="mt-1 text-center font-display text-base text-white/70">
-                And Ask For It
-              </p>
+              <div className="text-center">
+                <span className="inline-block rounded-full border-2 border-tagcon-orange/60 bg-tagcon-orange/15 px-4 py-1 font-heading text-xs font-bold uppercase tracking-[0.15em] text-tagcon-orange">
+                  Closed
+                </span>
+                <h2 className="mt-4 font-display text-2xl uppercase text-tagcon-banana sm:text-3xl">
+                  Featured Creator Applications
+                </h2>
+                <p className="mt-4 font-display text-base text-white/70">
+                  Creator sign-ups are closed for this event.
+                </p>
+              </div>
 
-              <div className="mt-8 flex justify-center">
-                <Button
-                  asChild
-                  size="lg"
-                  className="h-12 rounded-full border-[3px] border-tagcon-banana-deep bg-tagcon-banana px-6 font-heading text-base font-bold text-tagcon-black shadow-[0_5px_0_rgba(255,183,0,0.45)] hover:bg-tagcon-banana-deep"
-                >
-                  <a
-                    href="https://discord.gg/TpFpN2afdg"
-                    target="_blank"
-                    rel="noreferrer"
+              <div className="mt-8 rounded-xl border-2 border-tagcon-banana/20 bg-black/40 p-6 text-center">
+                <p className="font-heading text-lg font-bold uppercase text-white">
+                  Still Wanna Hang Out?
+                </p>
+                <p className="mt-2 font-display text-sm text-white/65">
+                  Jump in the Discord — monke business never stops.
+                </p>
+
+                <div className="mt-6 flex justify-center">
+                  <Button
+                    asChild
+                    size="lg"
+                    className="h-12 rounded-full border-[3px] border-tagcon-banana-deep bg-tagcon-banana px-6 font-heading text-base font-bold text-tagcon-black shadow-[0_5px_0_rgba(255,183,0,0.45)] hover:bg-tagcon-banana-deep"
                   >
-                    <DiscordIcon className="size-5" aria-hidden />
-                    Join Our Discord
-                  </a>
-                </Button>
+                    <a
+                      href="https://discord.gg/TpFpN2afdg"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <DiscordIcon className="size-5" aria-hidden />
+                      Join Our Discord
+                    </a>
+                  </Button>
+                </div>
               </div>
             </div>
           </div>

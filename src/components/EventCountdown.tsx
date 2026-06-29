@@ -68,6 +68,7 @@ function CountdownUnit({
 export function EventCountdown({ eventStart, compact }: EventCountdownProps) {
   const target = new Date(eventStart).getTime();
   const [timeLeft, setTimeLeft] = useState(() => getTimeLeft(target));
+  const isLive = timeLeft.total <= 0;
 
   useEffect(() => {
     const tick = () => setTimeLeft(getTimeLeft(target));
@@ -77,7 +78,7 @@ export function EventCountdown({ eventStart, compact }: EventCountdownProps) {
     return () => window.clearInterval(id);
   }, [target]);
 
-  if (timeLeft.total <= 0) {
+  if (isLive) {
     return (
       <p className="font-display text-sm uppercase tracking-wider text-tagcon-banana">
         Live now
